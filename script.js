@@ -42,6 +42,9 @@ async function exec(input, options) {
 }
 
 client.on("message", msg => {
+	if (msg.content != "./start" || msg.content != "./status") {
+		console.error("Invalid command!");
+		return;
 	if (msg.channel === client.config.channel && msg.author === client.config.owner) {
 		console.log(msg.content);
 		exec(msg.content);
